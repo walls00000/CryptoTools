@@ -1,0 +1,33 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <form id="cryptoForm">
+    <label for="key">Key:</label><br>
+    <input type="text" id="key" name="key" size="80"><br>
+    <label for="text">Text:</label><br>
+    <textarea id="text" name="text" rows="4" cols="80"></textarea><br>
+    <input type="button" id="encryptButton" value="Encrypt">
+    <input type="button" id="decryptButton" value="Decrypt">
+  </form>
+  <label for="result">Result:</label><br>
+  <textarea id="result" name="result" rows="4" cols="80" readonly></textarea><br>
+
+  <script>
+    $('#encryptButton').on('click', function() {
+      $.post('/encrypt', { text: $('#text').val(), key: $('#key').val() }, function(data) {
+        $('#result').val(data.encrypted);
+      });
+    });
+
+    $('#decryptButton').on('click', function() {
+      $.post('/decrypt', { encryptedText: $('#text').val(), key: $('#key').val() }, function(data) {
+        $('#result').val(data.decrypted);
+      });
+    });
+  </script>
+</body>
+</html>
