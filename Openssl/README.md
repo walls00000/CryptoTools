@@ -45,6 +45,12 @@ export PRIVATE_KEY=alice_private.pem
 ```
 
 ## cryptographic signing ##
+**Cryptographically signing** a file provides two main benefits:
+
+**Authentication**: The signature verifies the sender's identity. Only the holder of the private key can create a valid signature, so the recipient can be sure of the sender's identity.
+
+**Integrity**: The signature ensures the file has not been tampered with during transmission. Any changes to the file after it was signed will cause the signature verification to fail.
+
 To generate a file with signature using private key use the `sign.sh` script.  A singned file named `signed.enc` will be produced.  By default the `sign.sh` will verify the `test.txt` file.  To specify a different file, provide the filename as an argument to `sign.sh`
 ```
 ./sign.sh [file-to-sign]
