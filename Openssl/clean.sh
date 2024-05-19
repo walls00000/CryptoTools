@@ -1,1 +1,1 @@
-rm -v *.pem signed.enc encrypted.enc decrypted.txt
+rm -v *.enc decrypted.txt

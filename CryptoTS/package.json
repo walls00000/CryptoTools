@@ -5,6 +5,7 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
+    "start": "tsx index.ts",
     "build": "tsc",
     "generate-key": "node ./key-generator.js",
     "test": "echo \"Error: no test specified\" && exit 1"
